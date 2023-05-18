@@ -1,30 +1,50 @@
-const form = document.getElementById('form');
+// FUNZIONE CHE GENERA I DATI AL CLICK DEL PULSANTE
+var generateButton = document.getElementById("generate");
 
-form.addEventListener('submit', Ticket)
+generateButton.addEventListener("click", function() {
 
-function Ticket (form) {
+    // Input da inserire
+    name = document.getElementById('name').value;
+    km = document.getElementById('km').value;
+    age = document.getElementById('age').value;
 
-    form.preventDefault();
+    // Calcolo prezzo base
+    basePrice = km * 0.21;
 
-    let kmIn = document.getElementById("kmInput").value;
-    let ageIn = document.getElementById('ageInput').value;
+    // Sconto UNDER 18
+    discount1 = basePrice - (basePrice * 0.2);
+    // Sconto OVER 65
+    discount2 = basePrice - (basePrice * 0.4);
 
-    let km = parseFloat(kmIn);
-    let age = parseInt(ageIn);
+    offerName = 'Biglietto Standard';
 
-    const price = 0.21
-    const priceUnder = price - ((price/100)*20)
-    const priceOver = price - ((price/100)*40)
-
-    let userPrice;
-    if (age<18) {
-        userPrice = km*priceUnder;
-    }else if (age>60) {
-        userPrice = km*priceOver;
+    // Condizione sconto
+    if (age == 'under18') {
+        finalPrice = discount1;
+        offerName = 'Sconto Under18';
+    } else if (age == 'over65') {
+        finalPrice = discount2;
+        offerName = 'Sconto Over65';
     } else {
-        userPrice = km*price;
+        finalPrice = basePrice;
     }
 
-    document.getElementById('userPrice').innerHTML = userPrice;
-    console.log(userPrice);
-}
+    // VARIABILI PER NUMERI RANDOM
+    var carriageNumber = Math.floor((Math.random() * 10) + 1);
+    var min = 90000;
+    var max = 100000;
+    var discountCode = Math.floor(Math.random() * (max - min) ) + min;
+    
+
+    // DETTAGLI BIGLIETTO
+    document.getElementById('passenger_name').innerHTML = name;
+
+    document.getElementById('discount_name').innerHTML = offerName;
+    document.getElementById('carriage').innerHTML = carriageNumber;
+    document.getElementById('discount_code').innerHTML = discountCode;
+    document.getElementById('final_price').innerHTML = finalPrice.toFixed(2) + ' €';
+
+    // dettagli biglietto al click del pulsante
+    document.getElementById('detail_box').className = 'show';
+});
+

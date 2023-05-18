@@ -1,0 +1,123 @@
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: sans-serif;
+    background-color: #236007;
+    text-align: center;
+}
+  
+h1, h2 {
+    color: white;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+  
+h2 {
+    font-size: 2em;
+}
+  
+h3,h4 {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+  
+a {
+    color: black;
+}
+  
+/* GENERATORE BIGLIETTO */
+.info_box {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    background-color: #e2f6d9;
+    border-radius: 10px;
+}
+  
+.info_box .info_row {
+    display: flex;
+    justify-content: space-evenly;
+}
+  
+.info_box .info_row .info_col {
+    display: flex;
+    flex-direction: column;
+}
+  
+.info_col label {
+    color: #0f2704;
+    margin-bottom: 20px;
+}
+  
+.info_col input, .info_col select {
+    height: 30px;
+    text-align: center;
+    border: 2px solid #042b06;
+    border-radius: 5px;
+}
+  
+.info_box .info_row.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+  
+.btn {
+    margin: 0 30px;
+    background-color: lightgray;
+    color: #042b06;
+    font-weight: bold;
+    border: 1px solid gray;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+/* DETTAGLI BIGLIETTO */
+#detail_box {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    background-color: #e2f6d9;
+}
+  
+.detail_container {
+    display: flex;
+    justify-content: center;
+}
+  
+.detail_container .detail_name {
+    background-color: rgb(173, 172, 172);
+    height: 100px;
+    padding: 5px 30px;
+}
+  
+.detail_container .detail_info {
+    height: 100px;
+    padding: 5px 15px;
+    margin-bottom: 40px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    flex-grow: 1;
+}
+ 
+.detail_container .detail_info table {
+    margin: auto;
+}
+  
+.detail_container .detail_info table tr td {
+    padding: 30px 0;
+}
+  
+.detail_container .detail_info table tr th {
+    padding: 0 30px;
+}
+
+.detail_container .detail_info table tr #final_price {
+    font-weight: bold;
+}
