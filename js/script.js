@@ -1,40 +1,30 @@
-// km
-let km = prompt ('inserisci km')
+const form = document.getElementById('form');
 
-// età
-let eta = prompt ('inserisci età')
+form.addEventListener('submit', Ticket)
 
-//  prezzo
-let prezzo = 0.21 * km
+function Ticket (form) {
 
-// dichiaro una variabile da mostrare
-let output
+    form.preventDefault();
 
-if(eta < 18){
-    let sconto = prezzo * 20 / 100;
-    prezzo = prezzo - sconto; // prezzo -= sconto (è la stessa cosa)
-    /* prezzo = prezzo * 80 / 100
-    prezzo *= 0.8; (stesso risultato) */
+    let kmIn = document.getElementById("kmInput").value;
+    let ageIn = document.getElementById('ageInput').value;
 
-    console.log(sconto);
-    console.log(prezzo)
+    let km = parseFloat(kmIn);
+    let age = parseInt(ageIn);
 
-    output = `Hai diritto ad uno sconto del 20%. Il prezzo del biglietto è di: ${prezzo.toFixed(2)}€`
+    const price = 0.21
+    const priceUnder = price - ((price/100)*20)
+    const priceOver = price - ((price/100)*40)
 
+    let userPrice;
+    if (age<18) {
+        userPrice = km*priceUnder;
+    }else if (age>60) {
+        userPrice = km*priceOver;
+    } else {
+        userPrice = km*price;
+    }
+
+    document.getElementById('userPrice').innerHTML = userPrice;
+    console.log(userPrice);
 }
-
-else if(eta > 65){
-    let sconto = prezzo * 40 / 100;
-    // prezzo -= sconto
-    prezzo *= 0.6;
-    console.log(prezzo);
-
-    output = `Hai diritto ad uno sconto del 40%. Il prezzo del biglietto è di: ${prezzo.toFixed(2)}€`
-}
-
-else{
-    output = `Il prezzo del biglietto è di: ${prezzo.toFixed(2)}€`
-}
-
-// mostro prezzo finale
-document.getElementById('output').innerHTML = output;
