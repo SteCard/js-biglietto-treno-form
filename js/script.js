@@ -1,3 +1,5 @@
+"use strict";
+
 // FUNZIONE CHE GENERA I DATI AL CLICK DEL PULSANTE
 let generateButton = document.getElementById("generate");
 
