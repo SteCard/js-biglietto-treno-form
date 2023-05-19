@@ -1,5 +1,5 @@
 // FUNZIONE CHE GENERA I DATI AL CLICK DEL PULSANTE
-var generateButton = document.getElementById("generate");
+let generateButton = document.getElementById("generate");
 
 generateButton.addEventListener("click", function() {
 
@@ -30,10 +30,10 @@ generateButton.addEventListener("click", function() {
     }
 
     // VARIABILI PER NUMERI RANDOM
-    var carriageNumber = Math.floor((Math.random() * 10) + 1);
-    var min = 90000;
-    var max = 100000;
-    var discountCode = Math.floor(Math.random() * (max - min) ) + min;
+    let carriageNumber = Math.floor((Math.random() * 10) + 1);
+    let min = 90000;
+    let max = 100000;
+    let discountCode = Math.floor(Math.random() * (max - min) ) + min;
     
 
     // DETTAGLI BIGLIETTO
@@ -46,5 +46,24 @@ generateButton.addEventListener("click", function() {
 
     // dettagli biglietto al click del pulsante
     document.getElementById('detail_box').className = 'show';
+});
+
+// FUNZIONE CHE CANCELLA I DATI AL CLICK DEL PULSANTE
+let eraseButton = document.getElementById("erase");
+
+eraseButton.addEventListener("click", function() {
+    document.getElementById('name').value = '';
+    document.getElementById('km').value = '';
+    document.getElementById('age').value = '';
+
+    document.getElementById('passenger_name').innerHTML = '';
+
+    document.getElementById('discount_name').innerHTML = '';
+    document.getElementById('carriage').innerHTML = '';
+    document.getElementById('discount_code').innerHTML = '';
+    document.getElementById('final_price').innerHTML = '';
+
+    // Funzione per nascondere i dettagli del biglietto al click del pulsante
+    document.getElementById('detail_box').className = 'hidden';
 });
 
